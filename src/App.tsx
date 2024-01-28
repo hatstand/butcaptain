@@ -25,10 +25,12 @@ function App() {
   const canvas = useRef<HTMLCanvasElement>(null);
   const comic = useRef<HTMLDivElement>(null);
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     onCaptainBubbleChange({ currentTarget: { value: 'What a week, huh?' } } as React.ChangeEvent<HTMLInputElement>);
     onTintinBubbleChange({ currentTarget: { value: 'Captain, it\'s Wednesday' } } as React.ChangeEvent<HTMLInputElement>);
   }, []);
+  /* eslint-enable react-hooks/exhaustive-deps */
 
   const onCaptainBubbleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const m = findFontSize(e.currentTarget.value, captainTotalWidth);
