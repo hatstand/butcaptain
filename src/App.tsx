@@ -11,19 +11,24 @@ type Metrics = {
 }
 
 function App() {
-  const [captainBubble, setCaptainBubble] = useState('What a week, huh?');
+  const [captainBubble, setCaptainBubble] = useState('');
   const [captainBubbleMetrics, setCaptainBubbleMetrics] = useState({} as Metrics);
 
   const captainTotalWidth = 393;
   const captainTotalHeight = 73;
 
-  const [tintinBubble, setTintinBubble] = useState('Captain, it\'s only Wednesday!');
+  const [tintinBubble, setTintinBubble] = useState('');
   const [tintinBubbleMetrics, setTintinBubbleMetrics] = useState({} as Metrics);
 
   const tintinTotalWidth = 277;
   const tintinTotalHeight = 43;
 
   const canvas = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    onCaptainBubbleChange({ currentTarget: { value: 'What a week, huh?' } } as React.ChangeEvent<HTMLInputElement>);
+    onTintinBubbleChange({ currentTarget: { value: 'Captain, it\'s only Wednesday!' } } as React.ChangeEvent<HTMLInputElement>);
+  }, []);
 
   const onCaptainBubbleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const m = findFontSize(e.currentTarget.value, captainTotalWidth);
