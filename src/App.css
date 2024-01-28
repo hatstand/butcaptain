@@ -1,0 +1,14 @@
+.captain-bubble {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    width: 393px;
+    height: 73px;
+    background-color: rgba(0, 0, 0, 0.1);
+    font-family: 'Polsyh';
+}
+
+@font-face {
+    font-family: 'Polsyh';
+    src: url('./fonts/Polsyh.ttf');
+}
