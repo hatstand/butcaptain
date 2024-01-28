@@ -8,6 +8,16 @@
     font-family: 'Polsyh';
 }
 
+.tintin-bubble {
+    position: absolute;
+    top: 125px;
+    left: 50px;
+    width: 277px;
+    height: 43px;
+    background-color: rgba(0, 0, 0, 0.1);
+    font-family: 'Polsyh';
+}
+
 @font-face {
     font-family: 'Polsyh';
     src: url('./fonts/Polsyh.ttf');

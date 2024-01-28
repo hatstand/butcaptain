@@ -17,12 +17,24 @@ function App() {
   const captainTotalWidth = 393;
   const captainTotalHeight = 73;
 
+  const [tintinBubble, setTintinBubble] = useState('Captain, it\'s only Wednesday!');
+  const [tintinBubbleMetrics, setTintinBubbleMetrics] = useState({} as Metrics);
+
+  const tintinTotalWidth = 277;
+  const tintinTotalHeight = 43;
+
   const canvas = useRef<HTMLCanvasElement>(null);
 
   const onCaptainBubbleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const m = findFontSize(e.currentTarget.value, captainTotalWidth);
     setCaptainBubbleMetrics(m);
     setCaptainBubble(e.currentTarget.value);
+  };
+
+  const onTintinBubbleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const m = findFontSize(e.currentTarget.value, tintinTotalWidth);
+    setTintinBubbleMetrics(m);
+    setTintinBubble(e.currentTarget.value);
   };
 
   const findFontSize = (text: string, targetWidth: number): Metrics => {
@@ -77,8 +89,20 @@ function App() {
               {captainBubble}
             </div>
           </div>
+          <div
+            className="tintin-bubble"
+            style={{ fontSize: `${tintinBubbleMetrics.fontSize}px` }}
+          >
+            <div style={{
+              position: 'absolute',
+              left: `${(tintinTotalWidth - tintinBubbleMetrics.width) / 2}px`,
+              top: `${(tintinTotalHeight - tintinBubbleMetrics.height) / 2}px`,
+            }}>
+              {tintinBubble}
+            </div>
+          </div>
         </div>
-        <canvas id="canvas" ref={canvas} />
+        <canvas id="canvas" ref={canvas} style={{display: 'none'}}/>
       </header>
       <div>
         <form>
@@ -91,6 +115,16 @@ function App() {
           <div>{captainBubbleMetrics.fontSize}</div>
           <div>{captainBubbleMetrics.height}</div>
           <div>{captainBubbleMetrics.width}</div>
+
+          <input
+            type="text"
+            placeholder="Captain, it's only Wednesday!"
+            value={tintinBubble}
+            onChange={onTintinBubbleChange}
+          />
+          <div>{tintinBubbleMetrics.fontSize}</div>
+          <div>{tintinBubbleMetrics.height}</div>
+          <div>{tintinBubbleMetrics.width}</div>
         </form>
       </div>
     </div>
