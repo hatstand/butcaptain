@@ -1,3 +1,20 @@
+.App {
+    display: flex;
+    /* font-family: 'Roboto' sans-serif; */
+}
+
+.controls {
+    margin: 20px;
+}
+
+input {
+    display: block;
+}
+
+.item {
+    margin: 12px;
+}
+
 .captain-bubble {
     position: absolute;
     top: 40px;
@@ -6,16 +23,18 @@
     height: 73px;
     /* background-color: rgba(0, 0, 0, 0.1); */
     font-family: 'Polsyh';
+    color: rgba(0, 0, 0, 0.98);
 }
 
 .tintin-bubble {
     position: absolute;
     top: 125px;
     left: 50px;
-    width: 277px;
+    width: 275px;
     height: 43px;
     /* background-color: rgba(0, 0, 0, 0.1); */
     font-family: 'Polsyh';
+    color: rgba(0, 0, 0, 0.98);
 }
 
 @font-face {

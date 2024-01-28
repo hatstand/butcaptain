@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import blank from './wednesday_blank.jpeg';
-import { on } from 'events';
+import html2canvas from 'html2canvas';
 
 type Metrics = {
   fontSize: number;
@@ -20,14 +19,15 @@ function App() {
   const [tintinBubble, setTintinBubble] = useState('');
   const [tintinBubbleMetrics, setTintinBubbleMetrics] = useState({} as Metrics);
 
-  const tintinTotalWidth = 277;
+  const tintinTotalWidth = 275;
   const tintinTotalHeight = 43;
 
   const canvas = useRef<HTMLCanvasElement>(null);
+  const comic = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     onCaptainBubbleChange({ currentTarget: { value: 'What a week, huh?' } } as React.ChangeEvent<HTMLInputElement>);
-    onTintinBubbleChange({ currentTarget: { value: 'Captain, it\'s only Wednesday!' } } as React.ChangeEvent<HTMLInputElement>);
+    onTintinBubbleChange({ currentTarget: { value: 'Captain, it\'s Wednesday' } } as React.ChangeEvent<HTMLInputElement>);
   }, []);
 
   const onCaptainBubbleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,16 +57,15 @@ function App() {
     }
 
     let fontSize = 10;
-    ctx.font = `${fontSize}px 'Polsyh'`;
     while (true) {
+      ctx.font = `${fontSize}px 'Polsyh'`;
       const metrics = ctx.measureText(text);
       if (metrics.width > targetWidth) {
         fontSize--;
+        ctx.font = `${fontSize}px 'Polsyh'`;
         break;
       }
       fontSize++;
-      console.log(`findFontSize: ${fontSize}`);
-      ctx.font = `${fontSize}px 'Polsyh'`;
     }
 
     const metrics = ctx.measureText(text);
@@ -77,10 +76,24 @@ function App() {
     };
   };
 
+  const download = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (!comic.current) return;
+    html2canvas(comic.current).then(canvas => {
+      const out = canvas.toDataURL('image/jpeg');
+      console.log(out);
+      const link = document.createElement('a');
+      link.href = out;
+      link.setAttribute('download', 'wednesday.jpeg')
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <div>
+      <div className="comic">
+        <div ref={comic}>
           <img src={blank} alt="wednesday" />
           <div
             className="captain-bubble"
@@ -108,28 +121,38 @@ function App() {
           </div>
         </div>
         <canvas id="canvas" ref={canvas} style={{display: 'none'}}/>
-      </header>
-      <div>
+      </div >
+      <div className="controls">
         <form>
-          <input
-            type="text"
-            placeholder="What a week, huh?"
-            value={captainBubble}
-            onChange={e => onCaptainBubbleChange(e)}
-          />
-          <div>{captainBubbleMetrics.fontSize}</div>
-          <div>{captainBubbleMetrics.height}</div>
-          <div>{captainBubbleMetrics.width}</div>
+          <div className="item">
+            <label htmlFor="captain">Captain</label>
+            <input
+              name="captain"
+              type="text"
+              placeholder="What a week, huh?"
+              value={captainBubble}
+              onChange={e => onCaptainBubbleChange(e)}
+            />
+            {/* <div>{captainBubbleMetrics.fontSize}</div>
+            <div>{captainBubbleMetrics.height}</div>
+            <div>{captainBubbleMetrics.width}</div> */}
+          </div>
 
-          <input
-            type="text"
-            placeholder="Captain, it's only Wednesday!"
-            value={tintinBubble}
-            onChange={onTintinBubbleChange}
-          />
-          <div>{tintinBubbleMetrics.fontSize}</div>
-          <div>{tintinBubbleMetrics.height}</div>
-          <div>{tintinBubbleMetrics.width}</div>
+          <div className="item">
+            <label htmlFor="tintin">Tintin</label>
+            <input
+              name="tintin"
+              type="text"
+              placeholder="Captain, it's Wednesday"
+              value={tintinBubble}
+              onChange={onTintinBubbleChange}
+            />
+            {/* <div>{tintinBubbleMetrics.fontSize}</div>
+            <div>{tintinBubbleMetrics.height}</div>
+            <div>{tintinBubbleMetrics.width}</div> */}
+          </div>
+
+          <button type="button" className="item" onClick={download}>Download</button>
         </form>
       </div>
     </div>
