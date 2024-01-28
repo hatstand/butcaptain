@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.013d69ed.css",
+    "main.js": "/static/js/main.1a2a92b6.js",
+    "static/js/787.031b25aa.chunk.js": "/static/js/787.031b25aa.chunk.js",
+    "static/media/wednesday_blank.jpeg": "/static/media/wednesday_blank.43fb5283ab0ae51bdd4f.jpeg",
+    "static/media/Polsyh.ttf": "/static/media/Polsyh.0bab60109106b4e28ba0.ttf",
+    "index.html": "/index.html",
+    "main.013d69ed.css.map": "/static/css/main.013d69ed.css.map",
+    "main.1a2a92b6.js.map": "/static/js/main.1a2a92b6.js.map",
+    "787.031b25aa.chunk.js.map": "/static/js/787.031b25aa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.013d69ed.css",
+    "static/js/main.1a2a92b6.js"
+  ]
+}
