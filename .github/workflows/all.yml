@@ -9,6 +9,8 @@ jobs:
         with:
           persist-credentials: false
       - name: Install and build
+        env:
+          PUBLIC_URL: www.purplehatstands.com
         run: |
           npm install
           npm run build
