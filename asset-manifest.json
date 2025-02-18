@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/butcaptain/static/css/main.0a5c2d71.css",
-    "main.js": "/butcaptain/static/js/main.b8e175b9.js",
-    "static/js/787.031b25aa.chunk.js": "/butcaptain/static/js/787.031b25aa.chunk.js",
-    "static/media/wednesday_blank.jpeg": "/butcaptain/static/media/wednesday_blank.43fb5283ab0ae51bdd4f.jpeg",
-    "static/media/Polsyh.ttf": "/butcaptain/static/media/Polsyh.0bab60109106b4e28ba0.ttf",
-    "index.html": "/butcaptain/index.html",
-    "main.0a5c2d71.css.map": "/butcaptain/static/css/main.0a5c2d71.css.map",
-    "main.b8e175b9.js.map": "/butcaptain/static/js/main.b8e175b9.js.map",
-    "787.031b25aa.chunk.js.map": "/butcaptain/static/js/787.031b25aa.chunk.js.map"
+    "main.css": "www.purplehatstands.com/static/css/main.f6f1454b.css",
+    "main.js": "www.purplehatstands.com/static/js/main.6077c38d.js",
+    "static/js/787.031b25aa.chunk.js": "www.purplehatstands.com/static/js/787.031b25aa.chunk.js",
+    "static/media/wednesday_blank.jpeg": "www.purplehatstands.com/static/media/wednesday_blank.43fb5283ab0ae51bdd4f.jpeg",
+    "static/media/Polsyh.ttf": "www.purplehatstands.com/static/media/Polsyh.0bab60109106b4e28ba0.ttf",
+    "index.html": "www.purplehatstands.com/index.html",
+    "main.f6f1454b.css.map": "www.purplehatstands.com/static/css/main.f6f1454b.css.map",
+    "main.6077c38d.js.map": "www.purplehatstands.com/static/js/main.6077c38d.js.map",
+    "787.031b25aa.chunk.js.map": "www.purplehatstands.com/static/js/787.031b25aa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a5c2d71.css",
-    "static/js/main.b8e175b9.js"
+    "static/css/main.f6f1454b.css",
+    "static/js/main.6077c38d.js"
   ]
 }
